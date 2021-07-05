@@ -1,0 +1,2 @@
+class CampanyPost < ApplicationRecord
+end
