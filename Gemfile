@@ -73,6 +73,9 @@ gem 'devise'
 gem 'devise_invitable'
 # 検索
 gem 'ransack'
+# カレンダー機能
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
