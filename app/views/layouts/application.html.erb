@@ -11,7 +11,7 @@
 
     <!--topの画面切り替え用-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.css">
-    
+
     <!--カレンダー機能-->
 
 
@@ -21,7 +21,7 @@
     <header class="shadow-sm bg-dark">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand text-white p-3" href="/">BusinessDailySupport</a>
+          <a class="navbar-brand text-white p-3">BusinessDailySupport</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,13 +29,15 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%#= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-white' %>
             </li>
+
             <li class="nav-item">
-              <%#= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
+              <%= link_to '企業ページ作成', new_campany_path, class: 'nav-link text-white' %>
             </li>
+
             <li class="nav-item">
-              <%#= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
             <% else %>
             <li class="nav-item">
@@ -70,5 +72,15 @@
           pager: false
         });
       </script>
+    <script>
+          $(function(){
+            autoFill();
+            function autoFill() {
+              $('#auto-fill-link').click(function(){
+                $('#password').val("<%= @password %>");
+              });
+            }
+          })
+        </script>
   </body>
 </html>

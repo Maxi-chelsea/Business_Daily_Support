@@ -1,4 +1,10 @@
-<div class="container">
+<head>
+  <meta charset="utf-8">
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+  <div class="container">
   <div class="row">
     <div class="col">
       <h2>新規企業ページ作成</h2>
@@ -11,14 +17,35 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          <label for="inputCode" class="col-sm-2 col-form-label">企業コード</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <%= f.text_field :code, class: 'form-control', id: 'password' %>
+            <%= button_tag 'パスワードを生成する', id: 'auto-fill-link', type: "button" %>
           </div>
         </div>
+      <%= f.submit "作成する" %>
+
+
       <% end %>
       </form>
       </table>
     </div>
   </div>
 </div>
+
+
+<script>
+  $(function(){
+    autoFill();
+    function autoFill() {
+      $('#auto-fill-link').click(function(){
+        $('#password').val("<%= @password %>");
+      });
+    }
+  })
+</script>
+</body>
+
+
+
+
