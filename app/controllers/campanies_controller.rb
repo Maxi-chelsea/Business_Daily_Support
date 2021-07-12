@@ -3,11 +3,13 @@ class CampaniesController < ApplicationController
   def new
     @campany = Campany.new
     @campany.users << current_user
+    @password = SecureRandom.alphanumeric(8)
   end
 
   def create
-    if Campany.create(Campany_params)
-      redirect_to Campanys_path, notice: 'グループを作成しました'
+    @campany = Campany.new(Campany_params)
+    if @campany.save
+      redirect_to Campanies_path, notice: 'グループを作成しました'
     else
       render :new
     end
@@ -29,7 +31,7 @@ class CampaniesController < ApplicationController
 
   private
   def campany_params
-    params.require(:campany).permit(:name, :user_id [])
+    params.require(:campany).permit(:name, :code)
   end
 
   def campany_post_params
