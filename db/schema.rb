@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_07_07_111955) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["campany_id"], name: "index_campany_users_on_campany_id"
+    t.index ["user_id"], name: "index_campany_users_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|

@@ -1,9 +1,10 @@
 class CreateCampanyUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :campany_users do |t|
-      t.integer :campany_id
-      t.integer :user_id
-
+      t.references :campany, foreign_key: true
+      t.references :user, foreign_key: true
+      
+      
       t.timestamps
     end
   end

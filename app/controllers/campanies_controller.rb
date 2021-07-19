@@ -8,10 +8,10 @@ class CampaniesController < ApplicationController
 
   def create
     @campany = Campany.new(Campany_params)
-    if @campany.save
-      redirect_to Campanies_path, notice: 'グループを作成しました'
+    if @campany.save!
+      redirect_to campanies_path, notice: 'グループを作成しました'
     else
-      render :new
+      render "new"
     end
   end
 
@@ -26,7 +26,7 @@ class CampaniesController < ApplicationController
       @campany.users << current_user
     end
 
-    @campany_posts = CampanyPost.where(campany_id: @campany.id).all
+    # @campany_posts = CampanyPost.where(campany_id: @campany.id).all
   end
 
   private
@@ -34,8 +34,8 @@ class CampaniesController < ApplicationController
     params.require(:campany).permit(:name, :code)
   end
 
-  def campany_post_params
-    params.require(:campany_post).permit(:title, :content)
-  end
+  # def campany_post_params
+    # params.require(:campany_post).permit(:title, :content)
+  # end
 
 end

@@ -63,6 +63,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'jquery-rails'
 # 環境変数化
 gem 'dotenv-rails'
 # 権限管理
@@ -84,6 +85,6 @@ gem 'kaminari', '~> 1.2.1'
 
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
-gem 'jquery-rails'
 
 gem 'pry-byebug'
+
